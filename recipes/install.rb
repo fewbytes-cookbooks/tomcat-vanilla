@@ -39,6 +39,14 @@ directory node["tomcat-vanilla"]["conf_dir"] do
 	mode "0755"
 end
 
+directory ::File.join(node["tomcat-vanilla"]["conf_dir"], "Catalina") do
+	mode "0755"
+end
+
+directory ::File.join(node["tomcat-vanilla"]["conf_dir"], "Catalina", "localhost") do
+	mode "0755"
+end
+
 unless node['tomcat-vanilla']["truststore_file"].nil?
   java_options = node['tomcat-vanilla']['java_options'].to_s
   java_options << " -Djavax.net.ssl.trustStore=#{node["tomcat-vanilla"]["conf_dir"]}/#{node["tomcat-vanilla"]["truststore_file"]}"
