@@ -35,6 +35,10 @@ end
   end
 end
 
+directory ::File.join(node["tomcat-vanilla"]["base"], "lib") do
+  mode "0755"
+end
+
 directory node["tomcat-vanilla"]["conf_dir"] do
 	mode "0755"
 end
