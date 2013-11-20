@@ -88,9 +88,9 @@ default["tomcat-vanilla"]["webapp_dir"] = "/var/lib/tomcat/webapps"
 default["tomcat-vanilla"]["keytool"] = "/usr/lib/jvm/default-java/bin/keytool"
 default["tomcat-vanilla"]["endorsed_dir"] = "#{node["tomcat-vanilla"]["home"]}/lib/endorsed"
 
-default["tomcat-vanilla"]["tarball_url"] = "http://www.us.apache.org/dist/tomcat/tomcat-7/v7.0.42/bin/apache-tomcat-7.0.42.tar.gz"
-default["tomcat-vanilla"]["tarball_checksum"] = "c163f762d7180fc259cc0d8d96e6e05a53b7ffb0120cb2086d6dfadd991c36df"
-default["tomcat-vanilla"]["version"] = "7.0.42"
+default["tomcat-vanilla"]["tarball_url"] = "http://www.us.apache.org/dist/tomcat/tomcat-7/v7.0.47/bin/apache-tomcat-7.0.47.tar.gz"
+default["tomcat-vanilla"]["tarball_checksum"] = "46dc31b08c120ffc2e38dccc119b9df02662a9fb297fa3fc6d90902c2f86057a"
+default["tomcat-vanilla"]["version"] = "7.0.47"
 
 # JMX
 default["tomcat-vanilla"]["jmx"]["enabled"] = true
