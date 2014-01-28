@@ -4,6 +4,10 @@ exec 2>&1
 ulimit -Hn <%= node['tomcat-vanilla']['open_file_limit'] %>
 ulimit -Sn <%= node['tomcat-vanilla']['open_file_limit'] %>
 
+# environment variables, defined here to cause service to restart when changed
+export CATALINA_OPTS='<%= @options[:catalina_opts].call %>'
+export JAVA_OPTS='<%= @options[:java_opts].call %>'
+
 cd <%= @options[:catalina_home] %>
 
 exec chpst -e <%= node["runit"]["service_dir"] %>/tomcat/env -u <%= @options[:user] %>:<%= @options[:group] %> -U <%= @options[:user] %>:<%= @options[:group] %> <%= @options[:catalina_home] %>/bin/catalina.sh run

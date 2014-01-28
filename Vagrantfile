@@ -51,12 +51,6 @@ Vagrant.configure("2") do |config|
       vb.customize ['storagectl', :id, '--name', 'SATAController', '--controller', 'IntelAHCI']
       vb.customize ['modifyvm', :id, "--chipset", "ich9"]
   end
-  #
-  # View the documentation for the provider you're using for more
-  # information on available options.
-
-  config.ssh.max_tries = 40
-  config.ssh.timeout   = 120
 
   # The path to the Berksfile to use with Vagrant Berkshelf
   # config.berkshelf.berksfile_path = "./Berksfile"
@@ -73,8 +67,15 @@ Vagrant.configure("2") do |config|
   # to skip installing and copying to Vagrant's shelf.
   # config.berkshelf.except = []
 
+  config.omnibus.chef_version = :latest
+
   config.vm.provision :chef_solo do |chef|
     chef.json = {
+      "tomcat-vanilla" => {
+        "catalina_extra_options" => {
+          "permgen" => "-XX:MaxPermSize=256m"
+        }
+      }
     }
 
     chef.run_list = [
