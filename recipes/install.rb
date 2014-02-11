@@ -25,7 +25,7 @@ ark "tomcat" do
 	url node["tomcat-vanilla"]["tarball_url"]
 	checksum node["tomcat-vanilla"]["tarball_checksum"]
   version node["tomcat-vanilla"]["version"]
-	action :install	
+	action :install
 end
 
 %w(base work_dir log_dir).each do |dir|

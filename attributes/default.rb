@@ -16,15 +16,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-default["tomcat-vanilla"]["port"] = 8080
-default["tomcat-vanilla"]["proxy_port"] = nil
-default["tomcat-vanilla"]["ssl_port"] = 8443
-default["tomcat-vanilla"]["ssl_proxy_port"] = nil
 default["tomcat-vanilla"]["enable_https"] = false
 default["tomcat-vanilla"]["keystore_file"] = nil # mandatory for https
 default["tomcat-vanilla"]["keystore_pass"] = nil # mandatory for https
-default["tomcat-vanilla"]["ajp_port"] = 8009
 default["tomcat-vanilla"]["catalina_options"] = ""
+
+default["tomcat-vanilla"]["connectors"]["ajp"]["redirectPort"] = 8443
+default["tomcat-vanilla"]["connectors"]["ajp"]["port"] = 8009
+
+default["tomcat-vanilla"]["connectors"]["http"]["port"] = 8080
+default["tomcat-vanilla"]["connectors"]["http"]["proxy_port"] = nil
+default["tomcat-vanilla"]["connectors"]["http"]["protocol"] = "org.apache.coyote.http11.Http11Protocol"
+default["tomcat-vanilla"]["connectors"]["http"]["connectionTimeout"] = "20000"
+default["tomcat-vanilla"]["connectors"]["http"]["executor"] = "HTTPExecutor"
+
+default["tomcat-vanilla"]["connectors"]["https"]["port"] = 8443
 
 #TODO: move the percentage of mem to take into an attribute
 percentage_of_total_mem = 0.6
@@ -62,11 +68,8 @@ default["tomcat-vanilla"]["truststore_type"] = "jks"
 default["tomcat-vanilla"]["certificate_dn"] = "cn=localhost"
 default["tomcat-vanilla"]["loglevel"] = "INFO"
 default["tomcat-vanilla"]["tomcat_auth"] = "true"
-default["tomcat-vanilla"]["protocol"] = "org.apache.coyote.http11.Http11Protocol"
-default["tomcat-vanilla"]["connectionTimeout"] = "20000"
 default["tomcat-vanilla"]["ajp_enabled"] = true
 default["tomcat-vanilla"]["executor_enabled"] = false
-default["tomcat-vanilla"]["executor"] = "HTTPExecutor"
 default["tomcat-vanilla"]["executor_namePrefix"] = "HTTP"
 default["tomcat-vanilla"]["executor_maxThreads"] = 600
 default["tomcat-vanilla"]["executor_minSpareThreads"] = 400
