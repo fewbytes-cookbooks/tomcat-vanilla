@@ -4,7 +4,7 @@ maintainer_email 'avishai@fewbytes.com'
 license          'Apache V2'
 description      'Installs/Configures tomcat from vanilla tarball'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.1.1'
+version          '0.1.2'
 
 depends "ark"
 depends "java"
