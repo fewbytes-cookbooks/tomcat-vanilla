@@ -30,7 +30,7 @@
   <Listener className="org.apache.catalina.core.AprLifecycleListener" SSLEngine="on" />
   -->
 
-  <% if node.recipes.include? "tomcat::apr" -%>
+  <% if node.recipes.include? "tomcat-vanilla::apr" -%>
   <Listener className="org.apache.catalina.core.AprLifecycleListener" SSLEngine="on" />
   <% end -%>
   <!--Initialize Jasper prior to webapps are loaded. Documentation at /docs/jasper-howto.html -->
