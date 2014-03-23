@@ -26,7 +26,6 @@ default["tomcat-vanilla"]["connectors"]["http"]["port"] = 8080
 default["tomcat-vanilla"]["connectors"]["http"]["proxy_port"] = nil
 default["tomcat-vanilla"]["connectors"]["http"]["protocol"] = "org.apache.coyote.http11.Http11Protocol"
 default["tomcat-vanilla"]["connectors"]["http"]["connectionTimeout"] = "20000"
-default["tomcat-vanilla"]["connectors"]["http"]["executor"] = "HTTPExecutor"
 
 default["tomcat-vanilla"]["connectors"]["https"]["port"] = 8443
 
