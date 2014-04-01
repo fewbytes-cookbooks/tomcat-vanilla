@@ -61,7 +61,7 @@ unless node['tomcat-vanilla']["truststore_file"].nil?
   java_options = node['tomcat-vanilla']['java_options'].to_s
   java_options << " -Djavax.net.ssl.trustStore=#{node["tomcat-vanilla"]["conf_dir"]}/#{node["tomcat-vanilla"]["truststore_file"]}"
   java_options << " -Djavax.net.ssl.trustStorePassword=#{node["tomcat-vanilla"]["truststore_password"]}"
-  node.set['tomcat']['java_options'] = java_options
+  node.set['tomcat-vanilla']['java_options'] = java_options
 end
 
 template ::File.join(node["tomcat-vanilla"]["conf_dir"], "server.xml") do
