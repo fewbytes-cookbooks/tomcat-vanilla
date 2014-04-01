@@ -13,6 +13,8 @@ if apr_from_source
 	end
 
 	include_recipe "build-essential"
+	include_recipe "tomcat-vanilla::install"
+	
 	case node.platform_family
 	when "debian"
 		package "libapr1-dev"
