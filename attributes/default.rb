@@ -76,9 +76,9 @@ default["tomcat-vanilla"]["webapp_dir"] = "/var/lib/tomcat/webapps"
 default["tomcat-vanilla"]["keytool"] = "/usr/lib/jvm/default-java/bin/keytool"
 default["tomcat-vanilla"]["endorsed_dir"] = "#{node["tomcat-vanilla"]["home"]}/lib/endorsed"
 
-default["tomcat-vanilla"]["tarball_url"] = "http://www.us.apache.org/dist/tomcat/tomcat-7/v7.0.52/bin/apache-tomcat-7.0.52.tar.gz"
-default["tomcat-vanilla"]["tarball_checksum"] = "f5f3c2c8f9946bf24445d2da14b3c2b8dc848622ef07c3cda14f486435d27fb0"
-default["tomcat-vanilla"]["version"] = "7.0.52"
+default["tomcat-vanilla"]["tarball_url"] = "http://www.us.apache.org/dist/tomcat/tomcat-7/v7.0.53/bin/apache-tomcat-7.0.53.tar.gz"
+default["tomcat-vanilla"]["tarball_checksum"] = "f5e79d70ca7962d11abfc753e47b68a11fdfb4a409e76e2b7bd0a945f80f87c9"
+default["tomcat-vanilla"]["version"] = "7.0.53"
 
 # crypto
 default["tomcat-vanilla"]["ssl_cert_file"] = nil
