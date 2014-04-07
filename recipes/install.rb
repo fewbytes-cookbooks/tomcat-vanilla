@@ -105,7 +105,7 @@ unless node['tomcat-vanilla']["ssl_cert_file"].nil?
        -password pass:#{node['tomcat-vanilla']['keystore_password']} \
        -out #{node['tomcat-vanilla']['keystore_file']}
     EOH
-    notifies :restart, "service[tomcat]"
+    notifies :restart, "runit_service[tomcat]"
     creates node['tomcat-vanilla']['keystore_file']
   end
 else
@@ -113,7 +113,7 @@ else
     cert_alias node.fqdn
     dn node['tomcat-vanilla']['certificate_dn']
     password node['tomcat-vanilla']['keystore_password']
-    notifies :restart, "service[tomcat]"
+    notifies :restart, "runit_service[tomcat]"
   end
 end
 
@@ -165,7 +165,7 @@ end
 
 link ::File.join(node['tomcat-vanilla']['base'], "logs") do
   to node['tomcat-vanilla']['log_dir']
-  notifies :restart, "service[tomcat]"
+  notifies :restart, "runit_service[tomcat]"
 end
 
 link ::File.join(node['tomcat-vanilla']['base'], "conf") do
