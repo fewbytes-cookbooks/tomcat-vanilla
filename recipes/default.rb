@@ -7,4 +7,5 @@
 # All rights reserved - Do Not Redistribute
 #
 
+include_recipe "tomcat-vanilla::authbind" if node["tomcat-vanilla"]["authbind"]
 include_recipe "tomcat-vanilla::service"
