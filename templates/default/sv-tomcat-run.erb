@@ -8,6 +8,15 @@ ulimit -Sn <%= node['tomcat-vanilla']['open_file_limit'] %>
 export CATALINA_OPTS='<%= @options[:catalina_opts].call %>'
 export JAVA_OPTS='<%= @options[:java_opts].call %>'
 
+AUTHBIND_COMMAND=""
+
+<% if @options[:authbind] -%>
+JAVA_OPTS="$JAVA_OPTS -Djava.net.preferIPv4Stack=true"
+AUTHBIND_COMMAND="/usr/bin/authbind --deep /bin/bash -c "
+<% end -%>
+
+CMD="$AUTHBIND_COMMAND <%= @options[:catalina_home] %>/bin/catalina.sh"
+
 cd <%= @options[:catalina_home] %>
 
-exec chpst -e <%= node["runit"]["service_dir"] %>/tomcat/env -u <%= @options[:user] %>:<%= @options[:group] %> -U <%= @options[:user] %>:<%= @options[:group] %> <%= @options[:catalina_home] %>/bin/catalina.sh run
+exec chpst -e <%= node["runit"]["service_dir"] %>/tomcat/env -u <%= @options[:user] %>:<%= @options[:group] %> -U <%= @options[:user] %>:<%= @options[:group] %> $CMD run

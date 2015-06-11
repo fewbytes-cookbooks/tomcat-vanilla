@@ -116,3 +116,6 @@ default["tomcat-vanilla"]["access_log"]["enabled"] = true
 default["tomcat-vanilla"]["access_log"]["options"]["pattern"] = "combined"
 
 default["tomcat-vanilla"]["environment"] = {}
+
+default["tomcat-vanilla"]["authbind"] = false
+default["tomcat-vanilla"]["authbind_ports"] = []  # eg. [80, 443]

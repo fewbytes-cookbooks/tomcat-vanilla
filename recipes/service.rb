@@ -27,7 +27,8 @@ runit_service "tomcat" do
 		:group => node["tomcat-vanilla"]["group"], 
 		:catalina_home => node["tomcat-vanilla"]["home"],
 		:java_opts => lazy { node["tomcat-vanilla"]["java_options"] },
-		:catalina_opts => catalina_options # already lazy
+		:catalina_opts => catalina_options, # already lazy
+        :authbind => node["tomcat-vanilla"]["authbind"]
 	})
 	env({
 		"CATALINA_HOME" => node["tomcat-vanilla"]["home"],
