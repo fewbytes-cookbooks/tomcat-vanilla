@@ -119,3 +119,6 @@ default["tomcat-vanilla"]["environment"] = {}
 
 default["tomcat-vanilla"]["authbind"] = false
 default["tomcat-vanilla"]["authbind_ports"] = []  # eg. [80, 443]
+
+default["tomcat-vanilla"]["service"]["control"] = ["t"]
+default["tomcat-vanilla"]["service"]["sv_timeout"] = 30

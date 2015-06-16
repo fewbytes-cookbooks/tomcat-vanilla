@@ -22,6 +22,8 @@ catalina_options = proc do
 end
 
 runit_service "tomcat" do
+    control node["tomcat-vanilla"]["service"]["control"]
+    sv_timeout node["tomcat-vanilla"]["service"]["sv_timeout"]
 	options({
 		:user => node["tomcat-vanilla"]["user"],
 		:group => node["tomcat-vanilla"]["group"], 
