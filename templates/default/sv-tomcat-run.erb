@@ -12,7 +12,7 @@ AUTHBIND_COMMAND=""
 
 <% if @options[:authbind] -%>
 JAVA_OPTS="$JAVA_OPTS -Djava.net.preferIPv4Stack=true"
-AUTHBIND_COMMAND="/usr/bin/authbind --deep /bin/bash -c "
+AUTHBIND_COMMAND="/usr/bin/authbind --deep"
 <% end -%>
 
 CMD="$AUTHBIND_COMMAND <%= @options[:catalina_home] %>/bin/catalina.sh"
