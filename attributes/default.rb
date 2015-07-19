@@ -106,8 +106,8 @@ default["tomcat-vanilla"]["jmx"]["control_password"] = "k298usljksd092lkjs09u23k
 default["tomcat-vanilla"]["jmx"]["control_user"] = "controlRole"
 default["tomcat-vanilla"]["jmx"]["password_file"] = ::File.join(node["tomcat-vanilla"]["conf_dir"], "jmxremote.password")
 default["tomcat-vanilla"]["jmx"]["access_file"] = ::File.join(node["tomcat-vanilla"]["conf_dir"], "jmxremote.access")
-default["tomcat-vanilla"]["jmx"]["hostname"] = if cloud and cloud["public_hostname"]
-		cloud["public_hostname"]
+default["tomcat-vanilla"]["jmx"]["hostname"] = if node["cloud"] and node["cloud"]["public_hostname"]
+		node["cloud"]["public_hostname"]
 	else
 		ipaddress
 	end
